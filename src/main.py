@@ -1,11 +1,39 @@
 # Resolve the problem!!
 import string
+import random
+
 
 SYMBOLS = list('!"#$%&\'()*+,-./:;?@[]^_`{|}~')
+UPPERCASE = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S,' 'T', 'U', 'V', 'W', 'X', 'Y', 'Z']
+LOWERCASE = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'Y', 'z']
+NUMBERS = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '0']
 
 
 def generate_password():
-    # Start coding here
+
+    ALL = UPPERCASE + LOWERCASE + NUMBERS + SYMBOLS
+    password = []
+    length = random.randint(8,16)
+
+    for i in range(length):
+        if i == 0:
+            caracter_random = random.choice(SYMBOLS)
+            password.append(caracter_random)
+        elif i == 1:
+            caracter_random = random.choice(UPPERCASE)
+            password.append(caracter_random)
+        elif i == 2:
+            caracter_random = random.choice(LOWERCASE)
+            password.append(caracter_random)
+        elif i == 3: 
+            caracter_random = random.choice(NUMBERS)
+            password.append(caracter_random)
+        else:
+            caracter_random = random.choice(ALL)
+            password.append(caracter_random)
+
+    password = ''.join(password)
+    return password
 
 
 def validate(password):
